@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<Configuration status="WARN">
+
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} %5p --- [%10.10t] [%-1.70c{1. }].[%-1.30M]:%04L: %m%n%ex"/>
+            						//시간:분:초:초	INFO --- [   main] %(o.z.m.TTT).%(main):0011: Hello 
+            						//									{1.} = 패키지명 앞에 한자리만 따옴
+        </Console>
+    </Appenders>
+
+
+    <Loggers>
+        <!-- <Logger name="org.zerock.myapp" level="trace"/> -->
+        
+
+        <Root level="trace">
+            <AppenderRef ref="Console"/>
+        </Root>
+    </Loggers>
+
+</Configuration>
