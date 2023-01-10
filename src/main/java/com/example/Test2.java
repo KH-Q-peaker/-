@@ -28,8 +28,6 @@ public class Test2 {
             circle.addLast(time);
         }// for : 1~26,26~1
 
-        log.info(circle.toString());
-
         if(start > 'M'){
             log.info("reverse");
             while(circle.peekLast() <= (91 - start)){
@@ -41,7 +39,6 @@ public class Test2 {
                 circle.addLast(circle.pollFirst());
             }// while
         }
-        log.info(circle.toString());
         shortCutPath(circle, start, paths.toCharArray());
     }// main
 
@@ -53,19 +50,15 @@ public class Test2 {
         time = 0;
 
         if((to < from && d < circle.size() /4) || (to > from && d > circle.size() /4)){
-            log.info("reverse");
             for(int i = 0; i < shortCut; i++){
-                log.info("temp = {}", circle.peekLast());
                 time += circle.peekLast();
                 circle.addFirst(circle.pollLast());
             }// for
         }
         else {
             for(int i = 0; i < shortCut; i++){
-                log.info("temp = {}", circle.peekFirst());
                 circle.addLast(circle.pollFirst());
                 time += circle.peekFirst();
-            
             }// for
         }// if-else
     }// shortCutPart
@@ -80,11 +73,10 @@ public class Test2 {
             shortCutPart(circle, start, p);
             times += time;
             shortCuts += shortCut;
-            log.info("shortCut = {},  time = {}", shortCut, time);
-
             start = p; // 시작점 변경
         } // for : 최단경로
-        log.info("shortCuts = {},  times = {}", shortCuts, times);
+
+        log.info("shortcuts = {}\ttime = {}", shortCuts, times);
     }// sumShorCut : 최단 경로들 합
 }// end class
 
